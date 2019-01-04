@@ -1,0 +1,4 @@
+vendor/
+src/Vstat/cache/
+composer.lock
+index.php
