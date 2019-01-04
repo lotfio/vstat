@@ -11,11 +11,12 @@ VSTAT is a simple lightweight PHP MIT API developed by Lotfio Lakehal That help 
 
 ## Features :
 - Easy to use.
-- Simple instalation online command with composer.
-- Get aLll Vatsim Data.
+- Simple instalation one line command with composer.
+- Get all Vatsim Data.
 - Get VATSIM servers data.
 - Get clients data.
-- 
+- Cache data to speed up the loading process.
+
 ## Instalation & Use :
 ```
     composer require lotfio/vstat
@@ -34,6 +35,16 @@ $vstat = new Vstat($trimmer, $parser, $filter);
 
 print_r($vstat->getClients());
 ```
+
+### Config:
+**Config file** is located inside `Vstat/config/app.php` where you can change vatsim data url, cache time and cache location.
+
+By default **VSTAT** is generting data each 5 minutes from `https:vstat.lotfio.net/vatsim-data.txt`
+You can change the time of data loading to 2 - 3 minutes.
+**Recommended** I recommand that you create a cron job on your host and update `vatsim-data.txt` file every minute
+which will highly increase the loading speed of you application. (if you do so make sure to keep php cache time higher than the cron job).
+
+
 ### Available methods :
 ```php
 // get all vatsim clients
