@@ -1,0 +1,27 @@
+{
+    "name": "lotfio/vstat",
+    "description": "Vatsim statistics PHP API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lotfio Lakehal",
+            "email": "contact@lotfio.net"
+        }
+    ],
+
+    "require" : {
+        "php" : "^7.2"
+    },
+
+    "autoload"   : {
+        "psr-4"  : {
+            "Vstat\\" : "src/Vstat/"
+        } 
+    },
+    
+    "autoload-dev" : {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
