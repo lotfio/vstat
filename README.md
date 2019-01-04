@@ -7,6 +7,7 @@
 ![version](https://img.shields.io/badge/Version-0.1.0-f53b57.svg)
 ![coverage](https://img.shields.io/badge/coverage-50%25-blue.svg)
 ![build](https://travis-ci.org/lotfio/vstat.svg?branch=master)
+[![StyleCI](https://github.styleci.io/repos/159562913/shield?branch=master)](https://github.styleci.io/repos/159562913)
 # Introduction :
 VSTAT is a simple lightweight PHP MIT API developed by Lotfio Lakehal That help you to get VATSIM statistics and data in simple clean and easy way.
 
