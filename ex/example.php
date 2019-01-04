@@ -1,17 +1,19 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 require '../vendor/autoload.php';
 
-use Vstat\App\{
-	DataParser,DataTrimmer,DataFilter,Vstat
-};
+use Vstat\App\DataFilter;
+use Vstat\App\DataParser;
+use Vstat\App\DataTrimmer;
+use Vstat\App\Vstat;
 
-$trimmer = new DataTrimmer;
-$parser  = new DataParser;
-$filter  = new DataFilter;
+$trimmer = new DataTrimmer();
+$parser = new DataParser();
+$filter = new DataFilter();
 
 $vstat = new Vstat($trimmer, $parser, $filter);
-
 
 // get all vatsim clients
 print_r(($vstat->getClients()));
@@ -30,7 +32,7 @@ print_r(($vstat->getVoiceServers()));
 print_r(($vstat->showByType('ATC')));
 
 // show by airline
-print_r(($vstat->showByAirline('BAW')) );
+print_r(($vstat->showByAirline('BAW')));
 
 // show by callsign
 print_r(($vstat->showByCallsign('BAW96')));
@@ -47,5 +49,5 @@ print_r(($vstat->getNumberOfControllers()));
 // get number of clients connected with the same airline
 echo count($vstat->showByAirline('DAH'));
 
-// get data as json formt 
+// get data as json formt
 print_r(json_encode($vstat->showByAirline('DAH')));
