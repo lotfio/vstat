@@ -1,4 +1,4 @@
-<?php namespace Vstat\Tests\Unit;
+<?php namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Vstat\App\DataFilter;
