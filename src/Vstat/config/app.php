@@ -29,5 +29,5 @@
  	
  	// in case of using cron job make sure that this cache time is higer than the cron job time
  	// to avoid php reload this file
- 	"cacheTime"     => 500, // time in minutes 
+ 	"cacheTime"     => 5, // time in minutes 
  ];
