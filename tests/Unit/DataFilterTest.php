@@ -1,7 +1,7 @@
 <?php namespace Vstat\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Vstat\App\Datafilter;
+use Vstat\App\DataFilter;
 
 /**
  * Vstat is an open source PHP API That
@@ -26,7 +26,7 @@ class DataFilterTest extends TestCase
 	 */
 	public function setUp()
 	{
-		$this->dataFilter = new Datafilter;
+		$this->dataFilter = new DataFilter;
 	}
 
 	/**
