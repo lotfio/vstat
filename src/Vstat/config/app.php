@@ -19,7 +19,7 @@
  return [
 
     // vatsim data file url
-    'vatsimDataUrl' => 'https://vstat.lotfio.net/vatsim-data.txt',
+    'vatsimDataUrl' => 'http://vatsim-data.hardern.net/vatsim-data.txt',
 
     // location where data file is cached
     // you can use a cron job to load this file each
