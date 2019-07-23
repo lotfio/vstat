@@ -25,10 +25,10 @@ class DataTrimmer implements DataTrimmerInterface
     /**
      * @method  trim method
      *
-     * @param   $data       vatsim data array
-     * @param   $startLine  start trimming line
-     * @param   $dataParser data parser object
-     * @param   $method     data parser method
+     * @param $data       vatsim data array
+     * @param $startLine  start trimming line
+     * @param $dataParser data parser object
+     * @param $method     data parser method
      */
     public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method) : array
     {
