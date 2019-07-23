@@ -23,7 +23,7 @@ use Vstat\App\DataTrimmer;
  */
 class DataTrimmerTest extends TestCase
 {
-    public function setUp()
+    public function setUp() : void
     {
         $this->dataTrimmer = new DataTrimmer();
         $this->parser = new DataParser();
