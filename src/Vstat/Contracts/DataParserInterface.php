@@ -22,24 +22,24 @@ interface DataParserInterface
     /**
      * @method  clients parser method
      *
-     * @param   $data array of data comming from
-     *                trimmer to be parsed and combined with available keys
+     * @param $data array of data comming from
+     *               trimmer to be parsed and combined with available keys
      */
     public function clientsParser(array $array) : array;
 
     /**
      * @method  servers parser method
      *
-     * @param   $data array of data comming from
-     *                trimmer to be parsed and combined with available keys
+     * @param $data array of data comming from
+     *               trimmer to be parsed and combined with available keys
      */
     public function serversParser(array $array) : array;
 
     /**
      * @method  voice servers parser method
      *
-     * @param   $data array of data comming from
-     *                trimmer to be parsed and combined with available keys
+     * @param $data array of data comming from
+     *               trimmer to be parsed and combined with available keys
      */
     public function voiceServersParser(array $array) : array;
 }

@@ -22,10 +22,10 @@ interface DataTrimmerInterface
     /**
      * @method   trim vatsim data using data parser
      *
-     * @param   $data       array of vatsim data taken from vatsim-data.txt as an array using file() method
-     * @param   $startLine  line from where start trimming
-     * @param   $dataParser data parser Object
-     * @param   $method     string parsing method
+     * @param $data       array of vatsim data taken from vatsim-data.txt as an array using file() method
+     * @param $startLine  line from where start trimming
+     * @param $dataParser data parser Object
+     * @param $method     string parsing method
      */
     public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method) : array;
 }
