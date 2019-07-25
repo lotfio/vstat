@@ -41,7 +41,7 @@ print_r($vstat->getClients());
 ### Config:
 **Config file** is located inside `Vstat/config/app.php` where you can change vatsim data url, cache time and cache location.
 
-By default **VSTAT** is generting data each 5 minutes from `https:vstat.lotfio.net/vatsim-data.txt`
+By default **VSTAT** is generting data each 5 minutes from `http://vatsim-data.hardern.net/vatsim-data.txt`
 You can change the time of data loading to 2 - 3 minutes.
 **Recommended** I recommand that you create a cron job on your host and update `vatsim-data.txt` file every minute
 which will highly increase the loading speed of you application. (if you do so make sure to keep php cache time higher than the cron job).
