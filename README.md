@@ -1,31 +1,40 @@
-# Vatsim Statistics API
-![Vstat Logo](https://user-images.githubusercontent.com/18489496/49801711-30eccd00-fd4b-11e8-8743-9af2560c983e.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/18489496/49801711-30eccd00-fd4b-11e8-8743-9af2560c983e.png"  alt="Vstat Preview">
+  <p align="center">
+    <img src="https://img.shields.io/badge/Licence-MIT-ffd32a.svg" alt="License">
+    <img src="https://img.shields.io/badge/PHP-7.2-808e9b.svg" alt="PHP version">
+    <img src="https://img.shields.io/badge/Version-0.1.5-f53b57.svg" alt="Version">
+    <img src="https://img.shields.io/badge/coverage-40%25-27ae60.svg" alt="Coverage">
+    <img src="https://travis-ci.org/lotfio/vstat.svg?branch=master" alt="Build Status">
+    <img src="https://github.styleci.io/repos/159562913/shield?branch=master" alt="StyleCi">
+    </p>
+  <p align="center">
+    <strong>:airplane: PHP Vatsim statistics package.</strong>
+  </p>
+</p>
 
+### 🔥 Introduction :
+VSTAT is a simple lightweight PHP MIT Package developed by Lotfio Lakehal That helps you to get VATSIM statistics and data in simple clean and easy way.
 
-![licence](https://img.shields.io/badge/Licence-MIT-ffd32a.svg)
-![language](https://img.shields.io/badge/PHP-7.2-808e9b.svg)
-![version](https://img.shields.io/badge/Version-0.1.0-f53b57.svg)
-![coverage](https://img.shields.io/badge/coverage-50%25-blue.svg)
-![build](https://travis-ci.org/lotfio/vstat.svg?branch=master)
-[![StyleCI](https://github.styleci.io/repos/159562913/shield?branch=master)](https://github.styleci.io/repos/159562913)
-# Introduction :
-VSTAT is a simple lightweight PHP MIT API developed by Lotfio Lakehal That help you to get VATSIM statistics and data in simple clean and easy way.
+### 📌 Requirements :
+- PHP 7.2 or newer versions
+- PHPUnit >= 8 (for testing purpose)
 
-## Features :
+### :ok_hand: Features :
 - Easy to use.
-- Simple instalation one line command with composer.
+- Simple installation one line command with composer.
 - Get all Vatsim Data.
 - Get VATSIM servers data.
 - Get clients data.
 - Cache data to speed up the loading process.
 
-## Instalation & Use :
+### 🚀 Installation & Use :
 ```
     composer require lotfio/vstat
 ```
 
-### Use it:
-```php 
+### :pencil2: Use it :
+```php
 use Vstat\App\{DataParser,DataTrimmer,DataFilter,Vstat};
 require 'vendor/autoload.php';
 
@@ -38,21 +47,21 @@ $vstat = new Vstat($trimmer, $parser, $filter);
 print_r($vstat->getClients());
 ```
 
-### Config:
+### :wrench: Config:
 **Config file** is located inside `Vstat/config/app.php` where you can change vatsim data url, cache time and cache location.
 
-By default **VSTAT** is generting data each 5 minutes from `http://vatsim-data.hardern.net/vatsim-data.txt`
+By default **VSTAT** is generating data each 5 minutes from `http://vatsim-data.hardern.net/vatsim-data.txt`
 You can change the time of data loading to 2 - 3 minutes.
-**Recommended** I recommand that you create a cron job on your host and update `vatsim-data.txt` file every minute
+**Recommended** I recommend that you create a cron job on your host and update `vatsim-data.txt` file every minute
 which will highly increase the loading speed of you application. (if you do so make sure to keep php cache time higher than the cron job).
 
 
-### Available methods :
+### :inbox_tray: Available methods :
 ```php
 // get all vatsim clients
 print_r(($vstat->getClients()));
 
-// get prefile plans
+// get profile plans
 print_r(($vstat->getPreFile()));
 
 // get vatsim servers
@@ -68,7 +77,7 @@ print_r(($vstat->showByType('ATC')));
 // show by airline
 print_r(($vstat->showByAirline('BAW')) );
 
-// show by callsign
+// show by callSing
 print_r(($vstat->showByCallsign('BAW96')));
 
 // show by vatsim id
@@ -83,24 +92,23 @@ print_r(($vstat->getNumberOfControllers()));
 // get number of clients connected with the same airline
 echo count($vstat->showByAirline('DAH'));
 
-// get data as json formt 
+// get data as json format
 print_r(json_encode($vstat->showByAirline('DAH')));
 ```
 
+### :computer: Contributing
 
+- Thank you for considering to contribute to Ouch. All the contribution guidelines are mentioned [here](CONTRIBUTE.md).
 
-## Contributing
+### :page_with_curl: ChangeLog
 
-Thank you for considering to contribute to Ouch. All the contribution guidelines are mentioned [here](CONTRIBUTE.md).
+- Here you can find the [ChangeLog](CHANGELOG.md).
 
-## ChangeLog
+### :beer: Support the development
 
-Here you can find the [ChangeLog](CHANGELOG.md).
+- Share ***VSTAT*** and lets get more stars and more contributors.
+- If this project helped you reduce time to develop, you can give me a cup of coffee :) : **[Paypal](https://www.paypal.me/lotfio)**. 💖
 
-## Support the development
+### :clipboard: License
 
-- Share **VSTAT** and lets get more stars and more contributors.
-
-## License
-
-***VSTAT*** is an open-source software licensed under the [MIT license](LICENSE).
+- ***VSTAT*** is an open-source software licensed under the [MIT license](LICENSE).
