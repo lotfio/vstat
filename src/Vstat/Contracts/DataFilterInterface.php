@@ -3,13 +3,13 @@
 namespace Vstat\Contracts;
 
 /**
- * Vstat is an open source PHP API That
+ * Vstat is an open source PHP Package That
  * helps you get live statistics About Vatsim
  * (Virtual Air Traffic Simulation Network)
  * This package is developed and maintained
  * by lotfio lakehal.
  *
- * @version     0.1.0
+ * @version     0.2.0
  *
  * @author      Lotfio Lakehal <contact@lotfio.net>
  * @copyright   Lotfio Lakehal 2018

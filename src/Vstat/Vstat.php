@@ -3,7 +3,7 @@
 namespace Vstat;
 
 /*
- * Vstat is an open source PHP API That
+ * Vstat is an open source PHP Package That
  * helps you get live statistics About Vatsim
  * (Virtual Air Traffic Simulation Network)
  * This package is developed and maintained
