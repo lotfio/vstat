@@ -6,13 +6,13 @@ use PHPUnit\Framework\TestCase;
 use Vstat\App\DataParser;
 
 /**
- * Vstat is an open source PHP API That
+ * Vstat is an open source PHP Package That
  * helps you get live statistics About Vatsim
  * (Virtual Air Traffic Simulation Network)
  * This package is developed and maintained
  * by lotfio lakehal.
  *
- * @version     0.1.0
+ * @version     0.2.0
  *
  * @author      Lotfio Lakehal <contact@lotfio.net>
  * @copyright   Lotfio Lakehal 2018
@@ -46,7 +46,7 @@ class DataParserTest extends TestCase
      */
     public function testClientsParserIsReturningAvalidArray()
     {
-        $this->assertInternalType('array', $this->parser->clientsParser($this->clientsData));
+        $this->assertIsArray($this->parser->clientsParser($this->clientsData));
         $this->assertCount(41, $this->parser->clientsParser($this->clientsData));
     }
 
@@ -56,7 +56,7 @@ class DataParserTest extends TestCase
      */
     public function testServersParserIsReturningAvalidArray()
     {
-        $this->assertInternalType('array', $this->parser->serversParser($this->serversData));
+        $this->assertIsArray($this->parser->serversParser($this->serversData));
         $this->assertCount(5, $this->parser->serversParser($this->serversData));
     }
 
@@ -66,7 +66,7 @@ class DataParserTest extends TestCase
      */
     public function testVoiceServersParserIsReturningAvalidArray()
     {
-        $this->assertInternalType('array', $this->parser->voiceServersParser($this->serversData));
+        $this->assertIsArray($this->parser->voiceServersParser($this->serversData));
         $this->assertCount(5, $this->parser->voiceServersParser($this->serversData));
     }
 }
