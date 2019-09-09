@@ -35,16 +35,11 @@ VSTAT is a simple lightweight PHP MIT Package developed by Lotfio Lakehal That h
 
 ### :pencil2: Use it :
 ```php
-use Vstat\App\{DataParser,DataTrimmer,DataFilter,Vstat};
+use Vstat\Vstat;
+
 require 'vendor/autoload.php';
 
-$trimmer = new DataTrimmer;
-$parser  = new DataParser;
-$filter  = new DataFilter;
-
-$vstat = new Vstat($trimmer, $parser, $filter);
-
-print_r($vstat->getClients());
+print_r(Vstat::getClients());
 ```
 
 ### :wrench: Config:
@@ -59,41 +54,41 @@ which will highly increase the loading speed of you application. (if you do so m
 ### :inbox_tray: Available methods :
 ```php
 // get all vatsim clients
-print_r(($vstat->getClients()));
+print_r((Vstat::getClients()));
 
-// get profile plans
-print_r(($vstat->getPreFile()));
+// get prefile plans
+print_r((Vstat::getPreFile()));
 
 // get vatsim servers
-print_r(($vstat->getServers()));
+print_r((Vstat::getServers()));
 
 // get vatsim voice servers
-print_r(($vstat->getVoiceServers()));
+print_r((Vstat::getVoiceServers()));
 
 // filters
 // show by Type ATC or PILOT by default show by PILOT
-print_r(($vstat->showByType('ATC')));
+print_r((Vstat::showByType('ATC')));
 
 // show by airline
-print_r(($vstat->showByAirline('BAW')) );
+print_r((Vstat::showByAirline('BAW')));
 
-// show by callSing
-print_r(($vstat->showByCallsign('BAW96')));
+// show by callsign
+print_r((Vstat::showByCallsign('BAW96')));
 
 // show by vatsim id
-print_r(($vstat->showByVatsimId(131)));
+print_r((Vstat::showByVatsimId(131)));
 
 // get number of pilots
-print_r(($vstat->getNumberOfPilots()));
+print_r((Vstat::getNumberOfPilots()));
 
 // get number of controllers
-print_r(($vstat->getNumberOfControllers()));
+print_r((Vstat::getNumberOfControllers()));
 
 // get number of clients connected with the same airline
-echo count($vstat->showByAirline('DAH'));
+echo count(Vstat::showByAirline('DAH'));
 
-// get data as json format
-print_r(json_encode($vstat->showByAirline('DAH')));
+// get data as json formt
+print_r(json_encode(Vstat::showByAirline('DAH')));
 ```
 
 ### :computer: Contributing
