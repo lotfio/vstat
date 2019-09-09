@@ -59,14 +59,14 @@ class App
         $config = (object) require_once dirname(__DIR__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'app.php';
 
         // load config
-        $this->vatsimDataUrl    = $config->vatsimDataUrl;
-        $this->cacheFile        = $config->cacheFile;
-        $this->cacheTime        = $config->cacheTime;
+        $this->vatsimDataUrl = $config->vatsimDataUrl;
+        $this->cacheFile = $config->cacheFile;
+        $this->cacheTime = $config->cacheTime;
 
         //inject dependencies
-        $this->dataTrimmer  = $dataTrimmer;
-        $this->dataParser   = $dataParser;
-        $this->dataFilter   = $dataFilter;
+        $this->dataTrimmer = $dataTrimmer;
+        $this->dataParser = $dataParser;
+        $this->dataFilter = $dataFilter;
     }
 
     /**
