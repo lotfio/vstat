@@ -19,55 +19,55 @@ namespace Vstat;
  */
 
 use Vstat\App\App;
+use Vstat\App\DataFilter;
 use Vstat\App\DataParser;
 use Vstat\App\DataTrimmer;
-use Vstat\App\DataFilter;
 
 class Vstat
 {
     /**
-     * vstat app instance
+     * vstat app instance.
      *
      * @var object
      */
     private static $app;
 
     /**
-     * available methods
+     * available methods.
      *
      * @var array
      */
-    private static $availMethods = array(
-        "getClients",
-        "getPreFile",
-        "getServers",
-        "getVoiceServers",
-        "showByType",
-        "showByAirline",
-        "showByCallsign",
-        "showByVatsimId",
-        "getNumberOfPilots",
-        "getNumberOfControllers"
-    );
+    private static $availMethods = [
+        'getClients',
+        'getPreFile',
+        'getServers',
+        'getVoiceServers',
+        'showByType',
+        'showByAirline',
+        'showByCallsign',
+        'showByVatsimId',
+        'getNumberOfPilots',
+        'getNumberOfControllers',
+    ];
 
     /**
-     * static proxy call for vstat methods
+     * static proxy call for vstat methods.
      *
-     * @param  string $name
-     * @param  array $arguments
+     * @param string $name
+     * @param array  $arguments
+     *
      * @return array
      */
     public static function __callStatic($name, $arguments)
     {
-        if(!in_array($name, self::$availMethods))
+        if (!in_array($name, self::$availMethods)) {
             throw new \Exception("Method $name not found", 4);
-
-        if(!isset(self::$app))
-        {
-            $trimmer    = new DataTrimmer;
-            $parser     = new DataParser;
-            $filter     = new DataFilter;
-            self::$app  = new App($trimmer, $parser, $filter);
+        }
+        if (!isset(self::$app)) {
+            $trimmer = new DataTrimmer();
+            $parser = new DataParser();
+            $filter = new DataFilter();
+            self::$app = new App($trimmer, $parser, $filter);
         }
 
         return   self::$app->{$name}(...$arguments);
