@@ -22,20 +22,20 @@ use Vstat\Contracts\DataFilterInterface;
 use Vstat\Contracts\DataParserInterface;
 use Vstat\Contracts\DataTrimmerInterface;
 
-class Vstat
+class App
 {
     /**
-     * @var obcject dataParser
+     * @var object dataParser
      */
     public $dataParser;
 
     /**
-     * @var obcject dataTrimmer
+     * @var object dataTrimmer
      */
     public $dataTrimmer;
 
     /**
-     * @var obcject dataFilter
+     * @var object dataFilter
      */
     public $dataFilter;
 
@@ -59,14 +59,14 @@ class Vstat
         $config = (object) require_once dirname(__DIR__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'app.php';
 
         // load config
-        $this->vatsimDataUrl = $config->vatsimDataUrl;
-        $this->cacheFile = $config->cacheFile;
-        $this->cacheTime = $config->cacheTime;
+        $this->vatsimDataUrl    = $config->vatsimDataUrl;
+        $this->cacheFile        = $config->cacheFile;
+        $this->cacheTime        = $config->cacheTime;
 
         //inject dependencies
-        $this->dataTrimmer = $dataTrimmer;
-        $this->dataParser = $dataParser;
-        $this->dataFilter = $dataFilter;
+        $this->dataTrimmer  = $dataTrimmer;
+        $this->dataParser   = $dataParser;
+        $this->dataFilter   = $dataFilter;
     }
 
     /**
