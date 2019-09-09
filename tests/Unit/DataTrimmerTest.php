@@ -34,7 +34,7 @@ class DataTrimmerTest extends TestCase
         $data = file(__DIR__.'/Stabs/vatsim-data.txt');
         $from = '!CLIENTS:';
         $res = $this->dataTrimmer->trim($data, $from, $this->parser, 'clientsParser');
-        $this->assertInternalType('array', $res);
-        $this->assertInternalType('object', $res[0]);
+        $this->assertIsArray($res);
+        $this->assertIsObject($res[0]);
     }
 }
