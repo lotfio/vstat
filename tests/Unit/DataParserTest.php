@@ -35,7 +35,7 @@ class DataParserTest extends TestCase
     /**
      * setting up our test object.
      */
-    public function setUp() : void
+    protected function setUp() : void
     {
         $this->parser = new DataParser();
     }
