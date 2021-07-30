@@ -2,23 +2,23 @@
   <img src="https://user-images.githubusercontent.com/18489496/49801711-30eccd00-fd4b-11e8-8743-9af2560c983e.png"  alt="Vstat Preview">
   <p align="center">
     <img src="https://img.shields.io/badge/Licence-MIT-ffd32a.svg" alt="License">
-    <img src="https://img.shields.io/badge/PHP-7.2-808e9b.svg" alt="PHP version">
-    <img src="https://img.shields.io/badge/Version-0.2.0-f53b57.svg" alt="Version">
+    <img src="https://img.shields.io/badge/PHP-7.4-808e9b.svg" alt="PHP version">
+    <img src="https://img.shields.io/badge/Version-0.3.0-f53b57.svg" alt="Version">
     <img src="https://img.shields.io/badge/coverage-40%25-27ae60.svg" alt="Coverage">
     <img src="https://travis-ci.org/lotfio/vstat.svg?branch=master" alt="Build Status">
     <img src="https://github.styleci.io/repos/159562913/shield?branch=master" alt="StyleCi">
     </p>
   <p align="center">
-    <strong>:airplane: PHP Vatsim statistics package.</strong>
+    <strong>:airplane: Vatsim statistics API.</strong>
   </p>
 </p>
 
 ### 🔥 Introduction :
-VSTAT is a simple lightweight PHP MIT Package developed by Lotfio Lakehal That helps you to get VATSIM statistics and data in simple clean and easy way.
+VSTAT is a simple lightweight PHP API That helps you to get VATSIM statistics and data in simple, clean way.
 
 ### 📌 Requirements :
-- PHP 7.2 or newer versions
-- PHPUnit >= 8 (for testing purpose)
+- PHP 7.4 or newer versions
+- PHPUnit >= 9 (for testing purpose)
 
 ### :ok_hand: Features :
 - Easy to use.
@@ -35,17 +35,16 @@ VSTAT is a simple lightweight PHP MIT Package developed by Lotfio Lakehal That h
 
 ### :pencil2: Use it :
 ```php
-use Vstat\Vstat;
 
 require 'vendor/autoload.php';
 
-print_r(Vstat::getClients());
+$vstat = new Vstat\Vstat;
+
+print_r($vstat->getClients());
 ```
 
 ### :wrench: Config:
-**Config file** is located inside `Vstat/config/app.php` where you can change vatsim data url, cache time and cache location.
-
-By default **VSTAT** is generating data each 5 minutes from `http://vatsim-data.hardern.net/vatsim-data.txt`
+By default **VSTAT** is generating data each 5 minutes from `http://data.vatsim.net/vatsim-data.txt`
 You can change the time of data loading to 2 - 3 minutes.
 **Recommended** I recommend that you create a cron job on your host and update `vatsim-data.txt` file every minute
 which will highly increase the loading speed of you application. (if you do so make sure to keep php cache time higher than the cron job).
@@ -54,41 +53,35 @@ which will highly increase the loading speed of you application. (if you do so m
 ### :inbox_tray: Available methods :
 ```php
 // get all vatsim clients
-print_r((Vstat::getClients()));
+$vstat->getClients();
 
 // get prefile plans
-print_r((Vstat::getPreFile()));
+$vstat->getPreFile();
 
 // get vatsim servers
-print_r((Vstat::getServers()));
+$vstat->getServers();
 
 // get vatsim voice servers
-print_r((Vstat::getVoiceServers()));
+$vstat->getVoiceServers();
 
 // filters
 // show by Type ATC or PILOT by default show by PILOT
-print_r((Vstat::showByType('ATC')));
+$vstat->showByType('ATC');
 
 // show by airline
-print_r((Vstat::showByAirline('BAW')));
+$vstat->showByAirline('BAW');
 
 // show by callsign
-print_r((Vstat::showByCallsign('BAW96')));
+$vstat->showByCallsign('BAW96');
 
 // show by vatsim id
-print_r((Vstat::showByVatsimId(131)));
+$vstat->showByVatsimId(131);
 
 // get number of pilots
-print_r((Vstat::getNumberOfPilots()));
+$vstat->getNumberOfPilots();
 
 // get number of controllers
-print_r((Vstat::getNumberOfControllers()));
-
-// get number of clients connected with the same airline
-echo count(Vstat::showByAirline('DAH'));
-
-// get data as json formt
-print_r(json_encode(Vstat::showByAirline('DAH')));
+$vstat->getNumberOfControllers();
 ```
 
 ### :computer: Contributing
