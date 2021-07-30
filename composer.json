@@ -1,6 +1,6 @@
 {
     "name": "lotfio/vstat",
-    "description": "Vatsim statistics PHP API",
+    "description": "Vatsim statistics API",
     "license": "MIT",
     "authors": [
         {
@@ -10,13 +10,13 @@
     ],
 
     "require" : {
-        "php" : "^7.2",
-        "phpunit/phpunit": "^8.3"
+        "php" : "^7.4",
+        "phpunit/phpunit": "^9"
     },
 
     "autoload"   : {
         "psr-4"  : {
-            "Vstat\\" : "src/Vstat/"
+            "Vstat\\" : "src/"
         } 
     },
     
@@ -24,5 +24,11 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+    },
+
+    "scripts": {
+        "test": [
+            "phpunit"
+        ]
     }
 }

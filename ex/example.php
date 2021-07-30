@@ -2,43 +2,43 @@
 
 declare(strict_types=1);
 
-use Vstat\Vstat;
-
 require 'vendor/autoload.php';
 
+$vstat = new Vstat\Vstat;
+
 // get all vatsim clients
-print_r((Vstat::getClients()));
+print_r($vstat->getClients());
 
 // get prefile plans
-print_r((Vstat::getPreFile()));
+print_r($vstat->getPreFile());
 
 // get vatsim servers
-print_r((Vstat::getServers()));
+print_r($vstat->getServers());
 
 // get vatsim voice servers
-print_r((Vstat::getVoiceServers()));
+print_r($vstat->getVoiceServers());
 
 // filters
 // show by Type ATC or PILOT by default show by PILOT
-print_r((Vstat::showByType('ATC')));
+print_r($vstat->showByType('ATC'));
 
 // show by airline
-print_r((Vstat::showByAirline('BAW')));
+print_r($vstat->showByAirline('BAW'));
 
 // show by callsign
-print_r((Vstat::showByCallsign('BAW96')));
+print_r($vstat->showByCallsign('BAW96'));
 
 // show by vatsim id
-print_r((Vstat::showByVatsimId(131)));
+print_r($vstat->showByVatsimId(131));
 
 // get number of pilots
-print_r((Vstat::getNumberOfPilots()));
+print_r($vstat->getNumberOfPilots());
 
 // get number of controllers
-print_r((Vstat::getNumberOfControllers()));
+print_r($vstat->getNumberOfControllers());
 
 // get number of clients connected with the same airline
-echo count(Vstat::showByAirline('DAH'));
+echo count($vstat->showByAirline('DAH'));
 
 // get data as json formt
-print_r(json_encode(Vstat::showByAirline('DAH')));
+print_r(json_encode($vstat->showByAirline('DAH')));

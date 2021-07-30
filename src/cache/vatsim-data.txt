@@ -1,0 +1,25 @@
+; !CLIENTS section -         callsign:cid:realname:clienttype:frequency:latitude:longitude:altitude:groundspeed:planned_aircraft:planned_tascruise:planned_depairport:planned_altitude:planned_destairport:server:protrevision:rating:transponder:facilitytype:visualrange:planned_revision:planned_flighttype:planned_deptime:planned_actdeptime:planned_hrsenroute:planned_minenroute:planned_hrsfuel:planned_minfuel:planned_altairport:planned_remarks:planned_route:planned_depairport_lat:planned_depairport_lon:planned_destairport_lat:planned_destairport_lon:atis_message:time_last_atis_received:time_logon:heading:QNH_iHg:QNH_Mb:
+!GENERAL:
+VERSION = 8
+RELOAD = 1
+UPDATE = 20210406231205
+CONNECTED CLIENTS = 1
+UNIQUE USERS = 1
+;
+;
+!CLIENTS:
+RETIRED:RETIRED:FEED RETIRED:PILOT::0.00000:0.00000:10000:100:::::::100:1:2000:0:0:0:I:0000:0000:00:00:00:00::THIS FEED HAS BEEN RETIRED EFFECTIVE 2021-04-07 0001Z. TOOLS STILL USING THIS SHOULD BE UPDATED - CHECK FOR AVAILABLE UPDATES ON YOUR TOOLS ALSO:THIS FEED HAS BEEN RETIRED EFFECTIVE 2021-04-07 0001Z. TOOLS STILL USING THIS SHOULD BE UPDATED - CHECK FOR AVAILABLE UPDATES ON YOUR TOOLS ALSO:0:0:0:0::20210407000001:20210407000001:0:29.92:1013:
+;
+;
+!SERVERS:
+CANADA:165.22.239.218:Toronto, Canada:CANADA:1:
+SINGAPORE:68.183.185.148:Singapore:SINGAPORE:1:
+USA-WEST:165.22.163.56:San Francisco, USA:USA-WEST:1:
+GERMANY-1:157.230.25.177:Frankfurt, Germany:GERMANY-1:1:
+GERMANY-2:157.230.17.198:Frankfurt, Germany:GERMANY-2:1:
+USA-EAST:134.209.67.219:New York, USA:USA-EAST:1:
+UK-1:209.97.177.84:London, UK:UK-1:1:
+;
+;
+!PREFILE:
+;

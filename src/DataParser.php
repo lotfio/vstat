@@ -1,6 +1,6 @@
 <?php
 
-namespace Vstat\App;
+namespace Vstat;
 
 use Vstat\Contracts\DataParserInterface;
 

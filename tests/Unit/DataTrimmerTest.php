@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Vstat\App\DataParser;
-use Vstat\App\DataTrimmer;
+use Vstat\DataParser;
+use Vstat\DataTrimmer;
 
 /**
  * Vstat is an open source PHP Package That

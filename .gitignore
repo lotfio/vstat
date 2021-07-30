@@ -1,4 +1,4 @@
 vendor/
-composer.lock
 index.php
 src/Vstat/cache
+.phpunit.*

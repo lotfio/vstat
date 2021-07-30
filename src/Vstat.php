@@ -1,6 +1,6 @@
 <?php
 
-namespace Vstat\App;
+namespace Vstat;
 
 /*
  * Vstat is an open source PHP Package That
@@ -18,64 +18,56 @@ namespace Vstat\App;
  *
  */
 
-use Vstat\Contracts\DataFilterInterface;
-use Vstat\Contracts\DataParserInterface;
-use Vstat\Contracts\DataTrimmerInterface;
-
-class App
+class Vstat
 {
     /**
-     * @var object dataParser
+     * @var DataTrimmer dataTrimmer
      */
-    public $dataParser;
+    public DataTrimmer $dataTrimmer;
 
     /**
-     * @var object dataTrimmer
+     * @var DataParser data
      */
-    public $dataTrimmer;
+    public DataParser $dataParser;
 
     /**
-     * @var object dataFilter
+     * @var DataFilter dataFilter
      */
-    public $dataFilter;
+    public DataFilter $dataFilter;
 
     /**
      * @var string vatsim data url
      */
-    public $vatsimDataUrl;
+    public string $vatsimDataUrl = 'http://data.vatsim.net/vatsim-data.txt';
 
     /**
-     * @var data cache file
+     * @var string cache file
      */
-    public $cacheFile;
+    public string $cacheFile = __DIR__ . '/cache/vatsim-data.txt';
 
     /**
-     * @var cache time in seconds
+     * @var int time in seconds
      */
-    public $cacheTime;
+    public int $cacheTime = 5;
 
-    public function __construct(DataTrimmerInterface $dataTrimmer, DataParserInterface $dataParser, DataFilterInterface $dataFilter)
+    /**
+     * setup
+     */
+    public function __construct()
     {
-        $config = (object) require_once dirname(__DIR__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'app.php';
-
-        // load config
-        $this->vatsimDataUrl = $config->vatsimDataUrl;
-        $this->cacheFile = $config->cacheFile;
-        $this->cacheTime = $config->cacheTime;
-
-        //inject dependencies
-        $this->dataTrimmer = $dataTrimmer;
-        $this->dataParser = $dataParser;
-        $this->dataFilter = $dataFilter;
+        //setup dependencies
+        $this->dataTrimmer = new DataTrimmer;
+        $this->dataParser  = new DataParser;
+        $this->dataFilter  = new DataFilter;
     }
 
     /**
-     * @method cacheVatsimData
-     *
      * check if vatsim data file doesn't exist or outdated
      * download it and cache it
+     *
+     * @return void
      */
-    public function cacheVatsimData() : void
+    public function cacheVatsimData(): void
     {
         if (!file_exists($this->cacheFile) or (filemtime($this->cacheFile) < (time() - 60 * $this->cacheTime))) {
             file_put_contents($this->cacheFile, preg_replace("/^\n+|^[\t\s]*\n+/m", ';', file_get_contents($this->vatsimDataUrl)),
@@ -84,57 +76,65 @@ class App
     }
 
     /**
-     * @method  retrieve vatsim data
-     * get vatsim data from cache file as an array
+     * retreieve vatsim data after caching
+     *
+     * @return array
      */
-    public function retrieveVatsimData() : array
+    public function retrieveVatsimData(): array
     {
         $this->cacheVatsimData(); // cache data to local file if not exists
         return array_filter(file($this->cacheFile)); // get data as an array and remove empty elements if any
     }
 
     /**
-     * @method array get all vatsim clients
+     * get all vatsim clients
+     *
+     * @return array
      */
-    public function getClients() : array
+    public function getClients(): array
     {
         $data = $this->retrieveVatsimData();
-
         return array_values($this->dataTrimmer->trim($data, '!CLIENTS:', $this->dataParser, 'clientsParser'));
     }
 
     /**
-     * @method array get all vatsim servers
+     * get all vatsim servers
+     *
+     * @return array
      */
     public function getServers() : array
     {
         $data = $this->retrieveVatsimData();
-
         return  array_values($this->dataTrimmer->trim($data, '!SERVERS:', $this->dataParser, 'serversParser'));
     }
 
     /**
-     * @method array get all vatsim prefile plans
+     * array get all vatsim prefile plans
+     *
+     * @return array
      */
     public function getPreFile() : array
     {
         $data = $this->retrieveVatsimData();
-
         return  array_values($this->dataTrimmer->trim($data, '!PREFILE:', $this->dataParser, 'clientsParser'));
     }
 
     /**
-     * @method array get all vatsim voice servers
+     * get voice servers
+     *
+     * @return array
      */
     public function getVoiceServers() : array
     {
         $data = $this->retrieveVatsimData();
-
         return  array_values($this->dataTrimmer->trim($data, '!VOICE SERVERS:', $this->dataParser, 'voiceServersParser'));
     }
 
     /**
-     * @method array showByType vatsim clients
+     * show by type
+     *
+     * @param string $type
+     * @return array
      */
     public function showByType($type = 'PILOT') : array
     {
@@ -146,37 +146,45 @@ class App
     }
 
     /**
-     * @method array showBy Airline vatsim clients
+     * show by airline code
+     *
+     * @param string $icao
+     * @return array
      */
-    public function showByAirline($icao = 'DLH') : array
+    public function showByAirline(string $icao = 'DLH') : array
     {
         $this->dataFilter->icao = $icao;
-
         return  array_values(array_filter($this->getClients(), [$this->dataFilter, 'filterByAirline']));
     }
 
     /**
-     * @method array show by callsign vatsim clients
+     * show by callsign
+     *
+     * @param  int|null $callsign
+     * @return array
      */
-    public function showByCallsign($callsign = null) : array
+    public function showByCallsign(?int $callsign = null) : array
     {
         $this->dataFilter->callsign = $callsign;
-
         return array_values(array_filter($this->getClients(), [$this->dataFilter, 'filterbyCallSign']));
     }
 
     /**
-     * @method array show by vatsim id
+     * show by vatsim id
+     *
+     * @param int|null $cid
+     * @return array
      */
-    public function showByVatsimId($cid = null) : array
+    public function showByVatsimId(?int $cid = null) : array
     {
         $this->dataFilter->cid = $cid;
-
         return array_values(array_filter($this->getClients(), [$this->dataFilter, 'filterbyId']));
     }
 
     /**
-     * @method array get number of pilots
+     * get number of pilots
+     *
+     * @return integer
      */
     public function getNumberOfPilots() : int
     {
@@ -184,7 +192,9 @@ class App
     }
 
     /**
-     * @method array get number of controllers
+     * get number of controllers
+     *
+     * @return integer
      */
     public function getNumberOfControllers() : int
     {
