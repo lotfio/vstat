@@ -25,7 +25,7 @@ interface DataParserInterface
      * @param $data array of data comming from
      *               trimmer to be parsed and combined with available keys
      */
-    public function clientsParser(array $array) : array;
+    public function clientsParser(array $array): array;
 
     /**
      * @method  servers parser method
@@ -33,7 +33,7 @@ interface DataParserInterface
      * @param $data array of data comming from
      *               trimmer to be parsed and combined with available keys
      */
-    public function serversParser(array $array) : array;
+    public function serversParser(array $array): array;
 
     /**
      * @method  voice servers parser method
@@ -41,5 +41,5 @@ interface DataParserInterface
      * @param $data array of data comming from
      *               trimmer to be parsed and combined with available keys
      */
-    public function voiceServersParser(array $array) : array;
+    public function voiceServersParser(array $array): array;
 }

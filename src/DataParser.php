@@ -68,7 +68,7 @@ class DataParser implements DataParserInterface
      *
      * @return array combining keys and values coming from DataParser
      */
-    public function clientsParser(array $array) : array
+    public function clientsParser(array $array): array
     {
         /*
          * slice array and make it 41 elements to fit the keys array
@@ -83,7 +83,7 @@ class DataParser implements DataParserInterface
      *
      * @return array combining keys and values coming from DataParser
      */
-    public function serversParser(array $array) : array
+    public function serversParser(array $array): array
     {
         return array_combine($this->serversKeys, array_slice($array, 0, 5));
     }
@@ -93,7 +93,7 @@ class DataParser implements DataParserInterface
      *
      * @return array combining keys and values coming from DataParser
      */
-    public function voiceServersParser(array $array) : array
+    public function voiceServersParser(array $array): array
     {
         return array_combine($this->voiceServersKeys, array_slice($array, 0, 5));
     }
