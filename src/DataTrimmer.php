@@ -30,7 +30,7 @@ class DataTrimmer implements DataTrimmerInterface
      * @param $dataParser data parser object
      * @param $method     data parser method
      */
-    public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method) : array
+    public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method): array
     {
         $allowed = false;
         $records = [];

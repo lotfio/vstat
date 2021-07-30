@@ -27,5 +27,5 @@ interface DataTrimmerInterface
      * @param $dataParser data parser Object
      * @param $method     string parsing method
      */
-    public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method) : array;
+    public function trim(array $data, string $startLine, DataParserInterface $dataParser, string $method): array;
 }

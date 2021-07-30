@@ -43,7 +43,7 @@ class DataFilter implements DataFilterInterface
      *
      * @return bool
      */
-    public function filterByPilot(object $data) : bool
+    public function filterByPilot(object $data): bool
     {
         return $data->clienttype == 'PILOT';
     }
@@ -55,7 +55,7 @@ class DataFilter implements DataFilterInterface
      *
      * @return bool
      */
-    public function filterByAtc(object $data) : bool
+    public function filterByAtc(object $data): bool
     {
         return $data->clienttype == 'ATC';
     }
@@ -67,7 +67,7 @@ class DataFilter implements DataFilterInterface
      *
      * @return bool
      */
-    public function filterByAirline(object $data) : bool
+    public function filterByAirline(object $data): bool
     {
         return !preg_match("/^$this->icao/", $data->callsign) === false;
     }
@@ -79,7 +79,7 @@ class DataFilter implements DataFilterInterface
      *
      * @return bool
      */
-    public function filterById(object $data) : bool
+    public function filterById(object $data): bool
     {
         return !preg_match("/^$this->cid/", $data->cid) === false;
     }
@@ -91,7 +91,7 @@ class DataFilter implements DataFilterInterface
      *
      * @return bool
      */
-    public function filterbyCallSign(object $data) : bool
+    public function filterbyCallSign(object $data): bool
     {
         return !preg_match("/^$this->callsign/", $data->callsign) === false;
     }

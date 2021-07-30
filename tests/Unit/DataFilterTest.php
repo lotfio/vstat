@@ -25,7 +25,7 @@ class DataFilterTest extends TestCase
     /**
      * setting up our test object.
      */
-    public function setUp() : void
+    public function setUp(): void
     {
         $this->dataFilter = new DataFilter();
     }

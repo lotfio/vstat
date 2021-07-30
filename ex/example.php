@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require 'vendor/autoload.php';
 
-$vstat = new Vstat\Vstat;
+$vstat = new Vstat\Vstat();
 
 // get all vatsim clients
 print_r($vstat->getClients());
